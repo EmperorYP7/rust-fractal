@@ -168,17 +168,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "f6503fe142514ca4799d4c26297c4248239fe8838d827db6bd6065c6ed29a6ce"
 
 [[package]]
-name = "hello-rust"
-version = "0.1.0"
-dependencies = [
- "error-chain",
- "image",
- "num",
- "num_cpus",
- "threadpool",
-]
-
-[[package]]
 name = "hermit-abi"
 version = "0.1.18"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -393,6 +382,17 @@ dependencies = [
  "crossbeam-utils",
  "lazy_static",
  "num_cpus",
+]
+
+[[package]]
+name = "rust-fractal"
+version = "0.1.0"
+dependencies = [
+ "error-chain",
+ "image",
+ "num",
+ "num_cpus",
+ "threadpool",
 ]
 
 [[package]]

@@ -1,8 +1,8 @@
 use error_chain::error_chain;
+use image::{ImageBuffer, Pixel, Rgb};
+use num::complex::Complex;
 use std::sync::mpsc::{channel, RecvError};
 use threadpool::ThreadPool;
-use num::complex::Complex;
-use image::{ImageBuffer, Pixel, Rgb};
 
 error_chain! {
     foreign_links {
@@ -32,7 +32,11 @@ fn wavelength_to_rgb(wavelength: u32) -> Rgb<u8> {
         _ => 1.0,
     };
 
-    let (r, g, b) = (normalize(r, factor), normalize(g, factor), normalize(b, factor));
+    let (r, g, b) = (
+        normalize(r, factor),
+        normalize(g, factor),
+        normalize(b, factor),
+    );
     Rgb::from_channels(r, g, b, 0)
 }
 
@@ -75,11 +79,13 @@ fn main() -> Result<()> {
 
     for y in 0..height {
         let tx = tx.clone();
-        pool.execute(move || for x in 0..width {
-                         let i = julia(c, x, y, width, height, iterations);
-                         let pixel = wavelength_to_rgb(380 + i * 400 / iterations);
-                         tx.send((x, y, pixel)).expect("Could not send data!");
-                     });
+        pool.execute(move || {
+            for x in 0..width {
+                let i = julia(c, x, y, width, height, iterations);
+                let pixel = wavelength_to_rgb(380 + i * 400 / iterations);
+                tx.send((x, y, pixel)).expect("Could not send data!");
+            }
+        });
     }
 
     for _ in 0..(width * height) {
