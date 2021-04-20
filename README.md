@@ -1,6 +1,8 @@
 # Fractal in Rust
 
-[![Software License](https://img.shields.io/github/license/EmperorYP7/rust-fractal?style=for-the-badge&logo=appveyor)](/LICENSE)
+[![Rust](https://github.com/EmperorYP7/rust-fractal/actions/workflows/general.yml/badge.svg)](https://github.com/EmperorYP7/rust-fractal/actions/workflows/general.yml)
+
+[![Software License](https://img.shields.io/github/license/EmperorYP7/rust-fractal?style=for-the-badge&logo=appveyor)](./LICENSE)
 [![Stars](https://img.shields.io/github/stars/EmperorYP7/rust-fractal?style=for-the-badge&logo=appveyor)](https://github.com/EmperorYP7/rust-fractal/stargazers)
 
 This project outputs a fractal as an image in `output.png`. The source code of this project

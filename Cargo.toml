@@ -1,5 +1,5 @@
 [package]
-name = "hello-rust"
+name = "rust-fractal"
 version = "0.1.0"
 authors = ["Yash Pandey (YP) <yash.btech.cs19@iiitranchi.ac.in>"]
 edition = "2018"
